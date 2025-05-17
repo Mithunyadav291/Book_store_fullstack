@@ -21,6 +21,7 @@ import Setting from './components/Profile/Setting'
 import AllOrders from './components/admin/AllOrders'
 import AddBook from './components/admin/AddBook'
 import UpdateBook from './components/admin/UpdateBook'
+import Loader from './components/Loader/Loader'
 
 axios.defaults.withCredentials=true;
 
@@ -30,15 +31,22 @@ const App = () => {
   const dispatch=useDispatch()
   const role=useSelector((state)=>state.auth.role);
 
-  const [Data, setData] = useState();
+  const [Data, setData] = useState(null);
+  const [loading,setLoading]=useState(true);
 
   useEffect(() => {
     const fetch=async()=>{
-      const response=await axios.get("http://localhost:3000/api/auth/getuser"
+     try {
+       const response=await axios.get("http://localhost:3000/api/auth/getuser"
         // ,{withCredentials:true}
       )
-      // console.log(response.data)
       setData(response.data)
+     } catch (error) {
+      setData(null)
+     }finally{
+      setLoading(false)
+     }
+    
 
     }
 
@@ -60,6 +68,14 @@ const App = () => {
       dispatch(authActions.changeRole(Data.role))
     }
   }, [Data]);
+
+  if(loading){
+    return(
+      <div className='flex justify-center h-[80vh] items-center w-full'>
+          <Loader/>
+        </div>
+    )
+  }
 
   return (
     <>
