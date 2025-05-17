@@ -11,7 +11,7 @@ const Profile = () => {
 
   useEffect(() => {
     const fetch=async()=>{
-      const response=await axios.get("http://localhost:3000/api/auth/getuser"
+      const response=await axios.get("https://book-store-fullstack-mithun.onrender.com/api/auth/getuser"
         // ,{withCredentials:true}
       )
       setData(response.data)

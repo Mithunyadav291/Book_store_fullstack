@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const BookCard = ({item,favourite,onUpdate}) => {
    
   const handleFavourites=async ()=>{
-      const response=await axios.put(`http://localhost:3000/api/favourite/addfavbook/${item._id}`,{})
+      const response=await axios.put(`https://book-store-fullstack-mithun.onrender.com/api/favourite/addfavbook/${item._id}`,{})
      toast.success(response.data.message)
       onUpdate()
     }

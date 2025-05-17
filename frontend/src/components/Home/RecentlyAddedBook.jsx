@@ -9,7 +9,7 @@ const RecentlyAddedBook = () => {
 
     useEffect(() => {
        const fetch= async ()=>{
-        const response=await axios.get("http://localhost:3000/api/book/getrecentbook")
+        const response=await axios.get("https://book-store-fullstack-mithun.onrender.com/api/book/getrecentbook")
        setData(response.data.data)
     }
 

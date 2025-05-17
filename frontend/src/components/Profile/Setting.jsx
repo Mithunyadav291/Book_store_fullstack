@@ -18,7 +18,7 @@ const Setting = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/auth/getuser", {
+        const response = await axios.get("https://book-store-fullstack-mithun.onrender.com/api/auth/getuser", {
           withCredentials: true
         });
         setProfileData(response.data);
@@ -67,7 +67,7 @@ const Setting = () => {
     console.log(payload)
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/auth/update/${fieldToEdit}/${profileData._id}`,
+        `https://book-store-fullstack-mithun.onrender.com/api/auth/update/${fieldToEdit}/${profileData._id}`,
         payload,
         { withCredentials: true }
       );

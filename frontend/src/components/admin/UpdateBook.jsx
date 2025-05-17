@@ -47,7 +47,7 @@ const UpdateBook = () => {
 
     useEffect(() => {
         const fetch=async()=>{
-            const response=await axios.get(`http://localhost:3000/api/book/getbookbyid/${id}`, {withCredentials:true})
+            const response=await axios.get(`https://book-store-fullstack-mithun.onrender.com/api/book/getbookbyid/${id}`, {withCredentials:true})
             setBookData(response.data.data)
         }
         fetch()

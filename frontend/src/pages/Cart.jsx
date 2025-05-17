@@ -11,7 +11,7 @@ const Cart = () => {
 
   
   const fetch=async ()=>{
-    const response= await axios.get("http://localhost:3000/api/cart/getcartbook",{withCredentials:true})
+    const response= await axios.get("https://book-store-fullstack-mithun.onrender.com/api/cart/getcartbook",{withCredentials:true})
     setCart(response.data.data)
     // console.log(response.data.data)
    }
@@ -20,7 +20,7 @@ const Cart = () => {
   }, []);
 
   const deleteItem=async (id)=>{
-    const response=await axios.put(`http://localhost:3000/api/cart/addtocart/${id}`,{},{  // here addtocart is used to delete the item from cart
+    const response=await axios.put(`https://book-store-fullstack-mithun.onrender.com/api/cart/addtocart/${id}`,{},{  // here addtocart is used to delete the item from cart
       withCredentials:true
     })
     fetch();
@@ -40,7 +40,7 @@ const Cart = () => {
 
  const placeOrder=async()=>{
   try {
-     const response=await axios.post("http://localhost:3000/api/order/placeorder",{order:cart},{withCredentials:true})
+     const response=await axios.post("https://book-store-fullstack-mithun.onrender.com/api/order/placeorder",{order:cart},{withCredentials:true})
      toast.success(response.data.message)
      navigate("/profile/orderHistory")
   } catch (error) {

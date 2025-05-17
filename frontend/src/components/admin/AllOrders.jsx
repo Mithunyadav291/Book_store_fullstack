@@ -17,7 +17,7 @@ const AllOrders = () => {
 
   const fetch = async () => {
     const response = await axios.get(
-      "http://localhost:3000/api/order/get-all-orders",
+      "https://book-store-fullstack-mithun.onrender.com/api/order/get-all-orders",
       { withCredentials: true }
     );
     setAllOrders(response.data.data);
@@ -28,7 +28,7 @@ const AllOrders = () => {
   }, []);
 
   const submitChanges=async(id)=>{
-    const response = await axios.put("http://localhost:3000/api/order/update-order-status/"+id,
+    const response = await axios.put("https://book-store-fullstack-mithun.onrender.com/api/order/update-order-status/"+id,
       {status:status},
       { withCredentials: true }
     );

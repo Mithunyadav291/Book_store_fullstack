@@ -23,7 +23,7 @@ dotenv.config();
 app.use(express.json())
 app.use(cookieParser());  // ✅ Add this to parse cookies
 app.use(cors({
-    origin:["http://localhost:5173"],
+    origin:["https://book-store-fullstack-mithun.onrender.com"],
     methods:["GET","POST","PUT","DELETE"],
     credentials:true
 }))

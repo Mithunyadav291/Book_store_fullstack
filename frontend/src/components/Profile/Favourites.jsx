@@ -6,7 +6,7 @@ const Favourites = () => {
   const [favouriteBooks,setFavouriteBooks]=useState([])
 
   const fetch= async ()=>{
-    const response=await axios.get(`http://localhost:3000/api/favourite/getfavouritebook`,
+    const response=await axios.get(`https://book-store-fullstack-mithun.onrender.com/api/favourite/getfavouritebook`,
      { withCredentials: true }
     )
    setFavouriteBooks(response.data.data)

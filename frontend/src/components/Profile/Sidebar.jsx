@@ -25,7 +25,7 @@ const Sidebar = ({data}) => {
     localStorage.clear("role")
 
     try {
-      const response=await axios.get("http://localhost:3000/api/auth/logout")
+      const response=await axios.get("https://book-store-fullstack-mithun.onrender.com/api/auth/logout")
       toast.success(response.data.message)
     } catch (error) {
       toast.error(error.response.data.message)

@@ -22,17 +22,17 @@ const ViewBookDetails = () => {
   const [Data, setData] = useState();
   useEffect(() => {
     const fetch= async ()=>{
-     const response=await axios.get(`http://localhost:3000/api/book/getbookbyid/${id}`,
+     const response=await axios.get(`https://book-store-fullstack-mithun.onrender.com/api/book/getbookbyid/${id}`,
       { withCredentials: true }
      )
     setData(response.data.data)
 
      // Check if this book is favourite (only if user)
      if (isLoggedIn && role === "user") {
-      const favResponse = await axios.get(`http://localhost:3000/api/favourite/checkfav/${id}`, {
+      const favResponse = await axios.get(`https://book-store-fullstack-mithun.onrender.com/api/favourite/checkfav/${id}`, {
         withCredentials: true
       });
-      const cartResponse = await axios.get(`http://localhost:3000/api/cart/checkCart/${id}`, {
+      const cartResponse = await axios.get(`https://book-store-fullstack-mithun.onrender.com/api/cart/checkCart/${id}`, {
         withCredentials: true
       });
       setFavourite(favResponse.data.isFavourite);
@@ -46,13 +46,13 @@ const ViewBookDetails = () => {
  
 
   const handleFavourites=async ()=>{
-    const response=await axios.put(`http://localhost:3000/api/favourite/addfavbook/${id}`,{})
+    const response=await axios.put(`https://book-store-fullstack-mithun.onrender.com/api/favourite/addfavbook/${id}`,{})
     setFavourite(!favourite)
    
     toast.success(response.data.message)
   }
   const handleCart=async ()=>{
-    const response=await axios.put(`http://localhost:3000/api/cart/addtocart/${id}`,{})
+    const response=await axios.put(`https://book-store-fullstack-mithun.onrender.com/api/cart/addtocart/${id}`,{})
     setAddedCart(!addedCart)
    
     toast.success(response.data.message)
@@ -60,7 +60,7 @@ const ViewBookDetails = () => {
 
   const handleDeleteBook=async()=>{
     try {
-      const response=await axios.delete(`http://localhost:3000/api/book/deleteBook/${id}`)
+      const response=await axios.delete(`https://book-store-fullstack-mithun.onrender.com/api/book/deleteBook/${id}`)
       toast.success(response.data.message)
       // console.log(response.data)
       navigate("/allbooks")
