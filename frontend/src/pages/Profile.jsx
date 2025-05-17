@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Sidebar from '../components/Profile/sidebar'
+import Sidebar from '../components/Profile/Sidebar'
 import { Outlet } from 'react-router-dom'
 import axios from 'axios'
 import Loader from '../components/Loader/Loader'
