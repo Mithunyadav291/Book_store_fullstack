@@ -39,6 +39,7 @@ export const signup=async (req,res)=>{
             _id:newUser._id,
             username:newUser.username,
             email:newUser.email,
+            role:newUser.role,
             // password:newUser.password,
             message:"successfully signup!",
             token:token

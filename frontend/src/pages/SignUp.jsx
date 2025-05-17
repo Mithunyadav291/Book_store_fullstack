@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 import { FaUser, FaEnvelope, FaLock, FaHome } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
+import { authActions } from '../store/auth';
+import { useDispatch } from 'react-redux';
 
 
 const SignUp = () => {
@@ -14,6 +16,8 @@ const SignUp = () => {
     address:""
   });
   const navigate=useNavigate()
+  const dispatch=useDispatch();
+  
   const handleSubmit=async (e)=>{
     e.preventDefault();
     
@@ -24,11 +28,14 @@ const SignUp = () => {
       }
      );
 
-      // If successful (status 201)
-      // if (response.status === 201) {
+      dispatch(authActions.login())
+            dispatch(authActions.changeRole(response.data.role))
+             localStorage.setItem('id',response.data._id)
+             localStorage.setItem('token',response.data.token)
+             localStorage.setItem('role',response.data.role)
         toast.success(response.data.message || "Account created successfully!");
-        navigate("/login");
-      // }
+        navigate("/");
+     
          
     } catch (error) {
      
